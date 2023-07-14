@@ -1,0 +1,11 @@
+// Custom scss file
+// rake css:build
+// to apply
+
+// Nav Bar overrides
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
