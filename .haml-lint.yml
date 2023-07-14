@@ -1,0 +1,7 @@
+linters:
+  LineLength:
+    max: 200
+  IdNames:
+    enabled: false
+  ClassesBeforeIds:
+    enabled: false
