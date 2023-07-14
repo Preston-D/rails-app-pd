@@ -5,3 +5,5 @@ linters:
     enabled: false
   ClassesBeforeIds:
     enabled: false
+  InlineStyles:
+    enabled: false
