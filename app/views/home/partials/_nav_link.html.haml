@@ -1,0 +1,6 @@
+-# Nav link partial
+-# Usage: = render 'home/partials/nav_link', locals: { action: 'home', controller: 'index', href: root_path, text: 'Home' }
+%li.nav-item
+  %a.nav-link{ 'aria-current' => aria_current?(locals[:action], locals[:controller]),
+               class: active?(locals[:action], locals[:controller]),
+               href: locals[:href] }= locals[:text]

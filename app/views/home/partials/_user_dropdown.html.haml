@@ -1,0 +1,19 @@
+%li.nav-item.dropdown
+  %a.nav-link.dropdown-toggle{ 'aria-expanded' => 'false', 'data-bs-toggle' => 'dropdown', href: '#', role: 'button' }
+    Account
+  - if user_signed_in?
+    %ul.dropdown-menu.dropdown-menu-dark
+      %li
+        %a.dropdown-item{ href: edit_user_registration_path } Edit
+      %li
+        %hr.dropdown-divider/
+      %li
+        = button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'dropdown-item'
+  - else
+    %ul.dropdown-menu.dropdown-menu-dark
+      %li
+        %a.dropdown-item{ href: new_user_registration_path } Create a New Account
+      %li
+        %hr.dropdown-divider/
+      %li
+        %a.dropdown-item{ href: new_user_session_path } Sign In
