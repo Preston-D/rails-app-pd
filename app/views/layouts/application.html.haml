@@ -10,7 +10,9 @@
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
   %body.bg-background
-    = render 'home/partials/header'
+    = render 'home/partials/header_off_canvas'
     .container-fluid
+      %p.notice= notice
+      %p.alert= alert
       = yield
       = render 'home/partials/footer'

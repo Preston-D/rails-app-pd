@@ -7,3 +7,5 @@ linters:
     enabled: false
   InlineStyles:
     enabled: false
+  ConsecutiveComments:
+    enabled: false

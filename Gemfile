@@ -77,3 +77,5 @@ end
 gem "haml-rails", "~> 2.1"
 
 gem "html2haml", "~> 2.3"
+
+gem "devise", "~> 4.9"
