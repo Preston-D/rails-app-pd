@@ -1,21 +1,26 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.container-sm
+  .m-5
+    %h1.d-flex.justify-content-center Sign up
+    .d-flex.justify-content-center
+      %p Already have an account? &nbsp;
+      = link_to "Log in", new_session_path(resource_name), class: 'link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover'
+  .card.mx-auto.w-75
+    .card-body.m-3
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field.row.mb-4
+          = f.label(:email, class: 'visually-hidden')
+          = f.email_field(:email, class: 'form-control', autofocus: true, autocomplete: 'email', placeholder: 'Email')
+        .field.row.mb-4
+          = f.label(:password, class: 'visually-hidden')
+          = f.password_field(:password, class: 'form-control', autocomplete: 'new-password', placeholder: 'Password')
+          - if @minimum_password_length
+            %em.mt-1
+              (#{@minimum_password_length} characters minimum)
+
+        .field.row.mb-4
+          = f.label(:password_confirmation, class: 'visually-hidden')
+          = f.password_field(:password_confirmation, class: 'form-control', autocomplete: 'new-password', placeholder: 'Confirm Password')
+        .actions.d-flex.justify-content-center
+          = f.submit('Sign up', class: 'btn btn-outline-primary btn-lg col-6 mx-auto mt-2 mb-4')
+-# = render "devise/shared/links"
