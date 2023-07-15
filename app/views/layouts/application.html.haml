@@ -12,5 +12,7 @@
   %body.bg-background
     = render 'home/partials/header'
     .container-fluid
+      %p.notice= notice
+      %p.alert= alert
       = yield
       = render 'home/partials/footer'
