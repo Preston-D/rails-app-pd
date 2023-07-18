@@ -9,7 +9,11 @@
 
 = @photo.inspect
 %br
-= image_tag(url_for(@photo.image))
+= image_tag(url_for(@photo.image_thumb))
+= image_tag(url_for(@photo.image_small))
+= image_tag(url_for(@photo.image_medium))
+= image_tag(url_for(@photo.image_large))
+= image_tag(url_for(@photo.image_full))
 
 = link_to 'Edit', edit_photo_path(@photo)
 \|
