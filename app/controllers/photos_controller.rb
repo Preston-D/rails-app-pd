@@ -21,6 +21,9 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
 
+    @photo.likes = 0
+    @photo.dislikes = 0
+
     respond_to do |format|
       if @photo.save
         format.html { redirect_to photo_url(@photo), notice: 'Photo was successfully created.' }

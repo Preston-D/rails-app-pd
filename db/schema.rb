@@ -45,6 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_16_171822) do
   create_table "photos", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.integer "likes"
+    t.integer "dislikes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
