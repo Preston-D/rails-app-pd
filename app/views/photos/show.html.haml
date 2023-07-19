@@ -1,0 +1,30 @@
+-# %p#notice= notice
+
+-# %p
+-#   %b Title:
+-#   = @photo.title
+-# %p
+-#   %b Description:
+-#   = @photo.description
+
+-# = @photo.inspect
+-# %br
+-# -# = image_tag(url_for(@photo.image_thumb))
+-# -# = image_tag(url_for(@photo.image_small))
+-# = image_tag(url_for(@photo.image_medium))
+-# -# = image_tag(url_for(@photo.image_large))
+-# -# = image_tag(url_for(@photo.image_full))
+
+-# = link_to 'Edit', edit_photo_path(@photo)
+-# \|
+-# = link_to 'Back', photos_path
+.card.w-75.mx-auto.m-5
+  = image_tag(url_for(@photo.image_large), class: 'card-img-top')
+
+  .card-body
+    %h1.card-title= @photo.title
+    %p.card-text= @photo.description
+
+    -# -# TODO Validate user
+    -# = button_to "Edit Image", edit_photo_path(@photo), class: 'btn btn-outline-secondary'
+     
