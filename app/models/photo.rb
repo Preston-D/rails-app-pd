@@ -13,6 +13,8 @@ class Photo < ApplicationRecord
     attachable.variant :large, resize_to_limit: [LARGE_SIZE, LARGE_SIZE]
   end
 
+  belongs_to :user
+
   def truncated_description
     if description.length > TRUNCATED_DESCRIPTION_MAX_LENGTH
       description[0..(TRUNCATED_DESCRIPTION_MAX_LENGTH - 4)] + '...'

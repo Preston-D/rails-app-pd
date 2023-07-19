@@ -23,6 +23,7 @@ class PhotosController < ApplicationController
 
     @photo.likes = 0
     @photo.dislikes = 0
+    @photo.user = current_user
 
     respond_to do |format|
       if @photo.save
