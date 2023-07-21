@@ -1,0 +1,4 @@
+%h1 TEST
+
+- @photos.each do |photo|
+  = image_tag(url_for(photo.image_thumb), class: '')

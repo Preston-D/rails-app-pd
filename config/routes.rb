@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   # Home Controller
   root to: 'home#index'
   get 'home/about'
+  get 'home/gallery'
 
   # Devise
   Rails.application.routes.draw do
-  resources :photos
+    resources :photos
     devise_for :users, controllers: {
       sessions: 'users/sessions'
     }
