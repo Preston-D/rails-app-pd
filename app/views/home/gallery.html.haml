@@ -1,4 +1,20 @@
 %h1 TEST
-
-- @photos.each do |photo|
-  = image_tag(url_for(photo.image_thumb), class: '')
+#lightgallery
+  - @photos.shuffle.each do |photo|
+    %a{href: polymorphic_url(photo.image, :routing_type => :path)}
+      = image_tag(url_for(photo.image_small), class: '')
+-# polymorphic_url(photo.image, :routing_type => :path)
+-# image_tag(url_for(photo.image))
+:javascript
+  lightGallery = window.lightGallery
+  lgThumbnail = window.lgThumbnail
+  lgZoom = window.lgZoom 
+  window.addEventListener("DOMContentLoaded", (event) => {
+    console.log("DOM fully loaded and parsed");
+    lightGallery(document.getElementById('lightgallery'), {
+        plugins: [lgZoom, lgThumbnail],
+        licenseKey: 'your_license_key',
+        speed: 500,
+        // ... other settings
+    });
+  });
