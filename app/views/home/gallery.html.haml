@@ -1,16 +1,16 @@
-%h1 TEST
-#lightgallery
+#lightgallery.row{ 'data-masonry': '{"percentPosition": true}' }
   - @photos.shuffle.each do |photo|
-    %a{href: polymorphic_url(photo.image, :routing_type => :path)}
+    %a.col-sm-6.col-lg-4.mb-4{href: polymorphic_url(photo.image, routing_type: :path)}
       = image_tag(url_for(photo.image_small), class: '')
--# polymorphic_url(photo.image, :routing_type => :path)
--# image_tag(url_for(photo.image))
+
 :javascript
+  // Set up light gallery
   lightGallery = window.lightGallery
   lgThumbnail = window.lgThumbnail
-  lgZoom = window.lgZoom 
+  lgZoom = window.lgZoom
+
   window.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM fully loaded and parsed");
+    // LIGHT GALLERY
     lightGallery(document.getElementById('lightgallery'), {
         plugins: [lgZoom, lgThumbnail],
         licenseKey: 'your_license_key',
@@ -18,3 +18,5 @@
         // ... other settings
     });
   });
+
+  
