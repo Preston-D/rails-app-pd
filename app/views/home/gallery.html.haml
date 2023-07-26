@@ -1,0 +1,23 @@
+.container
+  #lightgallery.row.mx-auto{ 'data-masonry': '{"percentPosition": true}' }
+    - @photos.shuffle.each do |photo|
+      %a.col-sm-6.col-lg-4.mb-4{href: polymorphic_url(photo.image, routing_type: :path)}
+        = image_tag(url_for(photo.image_small), class: 'object-fit-scale w-100')
+
+:javascript
+  // Set up light gallery
+  lightGallery = window.lightGallery
+  lgThumbnail = window.lgThumbnail
+  lgZoom = window.lgZoom
+
+  window.addEventListener("DOMContentLoaded", (event) => {
+    // LIGHT GALLERY
+    lightGallery(document.getElementById('lightgallery'), {
+        plugins: [lgZoom, lgThumbnail],
+        licenseKey: 'your_license_key',
+        speed: 500,
+        // ... other settings
+    });
+  });
+
+  

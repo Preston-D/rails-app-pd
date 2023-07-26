@@ -11,6 +11,8 @@
         %ul.navbar-nav.justify-content-end.flex-grow-1.pe-3
           = render 'home/partials/nav_link', locals: { action: 'home', controller: 'index', href: root_path, text: 'Home' }
           = render 'home/partials/nav_link', locals: { action: 'home', controller: 'about', href: home_about_path, text: 'About' }
+          - if user_signed_in?
+            = render 'home/partials/photo_dropdown'
           = render 'home/partials/user_dropdown'
         %form.d-flex.mt-3{ role: 'search' }
           %input.form-control.me-2{ 'aria-label' => 'Search', placeholder: 'Search', type: 'search' }/

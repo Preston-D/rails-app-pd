@@ -1,0 +1,14 @@
+%li.nav-item.dropdown
+  %a.nav-link.dropdown-toggle{ 'aria-expanded' => 'false', 'data-bs-toggle' => 'dropdown', href: '#', role: 'button' }
+    My Photos
+  %ul.dropdown-menu.dropdown-menu-dark
+    %li
+      %a.dropdown-item{ href: new_photo_path } New
+    %li
+      %hr.dropdown-divider/
+    %li
+      %a.dropdown-item{ href: photos_path } All
+    %li
+      %hr.dropdown-divider/
+    %li
+      %a.dropdown-item{ href: home_gallery_path } My Gallery

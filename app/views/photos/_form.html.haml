@@ -6,14 +6,14 @@
         - @photo.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :image
-    = f.file_field :image, accept: accepted_file_types
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .actions
-    = f.submit 'Save'
+  .field.row.mb-4
+    = f.label :image, class: 'visually-hidden'
+    = f.file_field :image, accept: accepted_file_types, class: 'form-control', autofocus: true
+  .field.row.mb-4
+    = f.label :title, class: 'visually-hidden'
+    = f.text_field :title, class: 'form-control', placeholder: 'Title'
+  .field.row.mb-4
+    = f.label :description, class: 'visually-hidden'
+    = f.text_area :description, class: 'form-control', placeholder: 'Description'
+  .actions.d-flex.justify-content-center
+    = f.submit 'Save', class: 'btn btn-outline-primary btn-lg col-6 mx-auto mt-2 mb-4'

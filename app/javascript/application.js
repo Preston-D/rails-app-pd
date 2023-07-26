@@ -3,3 +3,7 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 
 import * as bootstrap from "bootstrap"
+
+import './src/lightgallery'
+
+import * as Masonry from 'masonry-layout'
