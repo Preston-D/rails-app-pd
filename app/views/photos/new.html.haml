@@ -1,5 +1,8 @@
-%h1 New photo
+.container-sm
+  .m-5
+    %h1.d-flex.justify-content-center Add a New Photo
+  .card.mx-auto.w-75
+    .card-body.m-3
+      = render 'form'
 
-= render 'form'
-
-= link_to 'Back', photos_path
+-# = link_to 'Back', photos_path
