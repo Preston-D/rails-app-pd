@@ -6,9 +6,9 @@
       .col-sm6.col-lg-4.mb-4
         .card
           = image_tag(url_for(photo.image_small), class: 'card-img-top')
-          .card-body
-            %h3.card-title= photo.title
-            .accordion{ id: "accordion_#{photo.id}" }
+          .card-body.p-0.pb-3.pt-4
+            %h3.card-title.mx-3.mb-4= photo.title
+            .accordion.accordion-flush{ id: "accordion_#{photo.id}" }
               .accordion-item
                 %h2.accordion-header
                   %button.accordion-button.collapsed{
