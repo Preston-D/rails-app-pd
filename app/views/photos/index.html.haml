@@ -1,23 +1,36 @@
-%h1 My Images
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th
-      %th
-      %th
-
-  %tbody
+.container-sm
+  .m-5
+    %h1.d-flex.justify-content-center My Images
+  .row{ 'data-masonry': '{"percentPosition": true}' }
     - @photos.each do |photo|
-      %tr
-        %td= photo.title
-        %td= photo.truncated_description
-        %td= link_to 'Show', photo
-        %td= link_to 'Edit', edit_photo_path(photo)
-        %td= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Photo', new_photo_path
+      .col-sm6.col-lg-4.mb-4
+        .card
+          = image_tag(url_for(photo.image_small), class: 'card-img-top')
+          .card-body
+            %h3.card-title= photo.title
+            .accordion{ id: "accordion_#{photo.id}" }
+              .accordion-item
+                %h2.accordion-header
+                  %button.accordion-button.collapsed{
+                                                      type: 'button',
+                                                      'data-bs-toggle': 'collapse',
+                                                      'data-bs-target': "#collapse_one_#{photo.id}",
+                                                      'aria-expanded': 'false',
+                                                      'aria-controls': "collapse_one_#{photo.id}"
+                                                    } Details
+                .accordion-collapse.collapse.show{ id: "collapse_one_#{photo.id}", 'data-bs-parent': "#accordion_#{photo.id}" }
+                  %p.accordion-body.card-text= photo.description
+              .accordion-item
+                %h2.accordion-header
+                  %button.accordion-button.collapsed{
+                                                      type: 'button',
+                                                      'data-bs-toggle': 'collapse',
+                                                      'data-bs-target': "#collapse_two_#{photo.id}",
+                                                      'aria-expanded': 'false',
+                                                      'aria-controls': "collapse_two_#{photo.id}"
+                                                    } Controls
+                .accordion-collapse.collapse{ id: "collapse_two_#{photo.id}", 'data-bs-parent': "#accordion_#{photo.id}" }
+                  .accordion-body
+                    = link_to 'Show', photo, class: 'btn btn-sm btn-primary'
+                    = link_to 'Edit', edit_photo_path(photo), class: 'btn btn-sm btn-primary'
+                    = link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'

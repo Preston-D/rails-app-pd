@@ -1,10 +1,10 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[create new edit update destroy]
+  before_action :authenticate_user!, only: %i[index create new edit update destroy]
 
   # GET /photos or /photos.json
   def index
-    @photos = Photo.all
+    @photos = current_user.photos.all
   end
 
   # GET /photos/1 or /photos/1.json
